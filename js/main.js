@@ -1,3 +1,6 @@
+//	Page must load before assigning events to the elements created
+//	in the index.html file
+
 $(function() {
 	//	function that reads the csv data in so that it can be used
 	function makePlot() {
@@ -17,6 +20,7 @@ $(function() {
 	}
 
 	//	function that creates the first bar graph through Plotly
+	//	(Bar Chart)
 	function makeGraphOne(all, graphName) {
 		var x = [],
 			y = [];
@@ -34,7 +38,7 @@ $(function() {
 
 		var layout = {
 			yaxis: {
-				title: 'Amount of Penicilin Used'
+				title: 'Amount of Penicilin Concentration Used'
 			},
 			title: 'Amount of Penicilin Per Bacteria'
 		};
@@ -42,6 +46,7 @@ $(function() {
 	}
 
 	//	function that creates the second graph through Plotly
+	//	(Stacked Bar Chart)
 	function makeGraphTwo(all, graphName) {
 		var x = [],
 			y = [],
@@ -81,7 +86,10 @@ $(function() {
 		Plotly.newPlot(graphName, data, layout, {staticPlot: true});
 	}
 
+	//	function for creating the third graph through Plotly
+	//	(Grouped Bar Chart)
 	function makeGraphThree(all, graphName) {
+		//	holds the bacteria names and values of each antibiotic
 		var bacteria = [],
 			penicilin = [],
 			streptomycin = [],
@@ -117,10 +125,14 @@ $(function() {
 		var data = [data1, data2, data3];
 
 		var layout = {
+			yaxis: {
+				title: 'MIC Concentration'
+			},
 			title: 'Minimum Inhibitory Concentration Per Bacteria',
 			barmode: 'group'};
 
 		Plotly.newPlot(graphName, data, layout, {staticPlot: true});
 	}
+	//	calls makePlot() to create the graphs
 	makePlot();
 });
