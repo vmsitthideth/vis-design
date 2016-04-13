@@ -1,6 +1,8 @@
 VICHIT MIKE SITTHIDETH
 INFO 474 A
 
+Link: http://students.washington.edu/vmsitth/info474/vis-design/
+
 Write-Up
 
 Graph 01:
