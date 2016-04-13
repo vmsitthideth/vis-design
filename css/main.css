@@ -1,5 +1,8 @@
 /* Main CSS file */
 
+/*Padding added to the top so that the 
+nav bar does not cover the page*/
+
 body {
 	padding-top: 100px;
 }
