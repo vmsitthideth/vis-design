@@ -9,9 +9,8 @@ $(function() {
 		});
 	};
 
+	// function to process the csv data
 	function processData(all) {
-		 console.log(all);
-
 		//	calls each graph making functions
 		//	passes the data in and the div id for the graph location
 		makeGraphOne(all,'graphOne');
@@ -24,6 +23,7 @@ $(function() {
 	function makeGraphOne(all, graphName) {
 		var x = [],
 			y = [];
+
 		for (var i = 0; i < all.length; i++) {
 			row = all[i];
 			x.push(row['Bacteria ']);
@@ -52,6 +52,7 @@ $(function() {
 			y = [],
 			pos = 0,
 			neg = 0;
+
 		for (var i = 0; i < all.length; i++) {
 			row = all[i];
 			if (row['Gram Staining '] == "positive") {
@@ -133,6 +134,7 @@ $(function() {
 
 		Plotly.newPlot(graphName, data, layout, {staticPlot: true});
 	}
+	
 	//	calls makePlot() to create the graphs
 	makePlot();
 });
